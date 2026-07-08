@@ -336,6 +336,7 @@
   function updateRip() { envelope.style.setProperty("--rip", rip); ripFill.style.width = rip * 100 + "%"; }
   function startOpen() {
     if (state.packsLeft <= 0) return;
+    closePausa(); // nunca deixa a pausa presa na frente da abertura
     rip = 0; opening = false; dragging = false;
     envelope.classList.remove("opening"); updateRip();
     openOverlay.classList.add("active");
@@ -376,6 +377,7 @@
      REVELAÇÃO
      ========================================================== */
   function showReveal(cards) {
+    closePausa(); // garante que a revelação nunca fique escondida atrás da pausa
     const wrap = $("#reveal-cards");
     wrap.innerHTML = "";
     cards.forEach((c, i) => {
@@ -411,11 +413,18 @@
   const pausaOverlay = $("#pausa-overlay");
   const pausaTimer = $("#pausa-timer");
   let pausaInterval = null;
+  let pausaReady = false; // só pode fechar depois dos 5s
+  function closePausa() {
+    clearInterval(pausaInterval);
+    pausaReady = false;
+    pausaTimer.classList.remove("ready");
+    pausaOverlay.classList.remove("active");
+  }
   function showPausa() {
     let left = 5;
     clearInterval(pausaInterval);
+    pausaReady = false;
     pausaTimer.classList.remove("ready");
-    pausaTimer.onclick = null;
     pausaTimer.textContent = left;
     pausaOverlay.classList.add("active");
     pausaInterval = setInterval(() => {
@@ -426,10 +435,13 @@
         clearInterval(pausaInterval);
         pausaTimer.textContent = "✕";        // vira botão de fechar
         pausaTimer.classList.add("ready");
-        pausaTimer.onclick = () => pausaOverlay.classList.remove("active");
+        pausaReady = true;
       }
     }, 1000);
   }
+  // fecha pelo ✕ ou clicando em qualquer lugar do fundo — mas só depois dos 5s
+  pausaTimer.addEventListener("click", () => { if (pausaReady) closePausa(); });
+  pausaOverlay.addEventListener("click", (e) => { if (pausaReady && e.target === pausaOverlay) closePausa(); });
 
   /* ---------- INIT ---------- */
   renderPage();
