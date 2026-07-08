@@ -40,6 +40,7 @@ const STICKERS = [
   { n: 12, name: "Mario",      club: "Uniforme Alternativo",    rarity: "rara",     img: "assets/novas/MARIO.png" },
   { n: 13, name: "Tarcisio",   club: "Uniforme Alternativo",    rarity: "rara",     img: "assets/novas/TARCISIO.png" },
   { n: 14, name: "Matheus",    club: "Uniforme Alternativo",    rarity: "rara",     img: "assets/novas/MATHEUS.png" },
+  { n: 43, name: "Copa Spassu 2026", club: "Logo Oficial",     rarity: "rara",     img: "assets/stickers/logo_copa_spassu.png" },
 
   // Página ESPECIAIS
   { n: 15, name: "Erling Haaland", club: "Lendária L-14 · Nº735", rarity: "lendaria", img: "assets/especiais/card_haaland_lendaria.png" },
@@ -70,10 +71,33 @@ const STICKERS = [
   { n: 38, name: "Eu Sou Lindo",         club: "Especial",            rarity: "especial", img: "assets/especiais/card_eu_sou_lindo_especial.png" },
   { n: 39, name: "Lionel Messi",         club: "Especial",            rarity: "lendaria", img: "assets/especiais/card_messi_especial.png" },
   { n: 41, name: "Neymar Jr",            club: "Especial",            rarity: "lendaria", img: "assets/especiais/card_neymar_especial.png" },
+  { n: 55, name: "Pedro",                club: "Special Collection Guest", rarity: "especial", img: "assets/especiais/card_pedro_especial.png" },
+  { n: 56, name: "Endrick & Ancelotti",  club: "Especial",            rarity: "especial", img: "assets/especiais/card_endrick_ancelotti_especial.png" },
+  { n: 57, name: "Haaland & Vini Jr",    club: "Especial",            rarity: "especial", img: "assets/especiais/card_halaand_vini_special.png" },
+  { n: 58, name: "Princesa",             club: "Especial",            rarity: "lendaria", img: "assets/especiais/card_princesa_especial.png" },
+  { n: 59, name: "Neymar",               club: "Edição Hidratação",   rarity: "especial", img: "assets/especiais/card_neymar_hidra_especial.png" },
+  { n: 60, name: "Vini Jr",              club: "Edição Hidratação",   rarity: "especial", img: "assets/especiais/card_vini_hidra_especial.png" },
+  { n: 61, name: "Casemiro",             club: "Edição Hidratação",   rarity: "especial", img: "assets/especiais/card_casemiro_hidra_especial.png" },
+  { n: 62, name: "Cry Harold",           club: "Especial",            rarity: "especial", img: "assets/especiais/card_cry_harold_especial.png" },
+  { n: 63, name: "Mbappé",               club: "Especial",            rarity: "lendaria", img: "assets/especiais/card_mbappe_especial.png" },
+  { n: 64, name: "Mônica II",            club: "Especial",            rarity: "especial", img: "assets/especiais/card_monica_especial_2.png" },
+  { n: 65, name: "Transbordar",          club: "Especial",            rarity: "especial", img: "assets/especiais/card_transbordar_especial.png" },
+  { n: 66, name: "Carol",                club: "Especial",            rarity: "especial", img: "assets/especiais/card_carol_especial.png" },
 
   // Página LEGENDS EXTRA (pasta extras/) — raridade "extra" com brilho holográfico
   { n: 40, name: "Bruna",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_bruna_extra.png" },
   { n: 42, name: "Piloto DevOps",        club: "Legends Extra · Nº124", rarity: "extra", img: "assets/extras/card_piloto_extra.png" },
+  { n: 44, name: "Amora",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_amora_extra.png" },
+  { n: 45, name: "Aurora",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_aurora_extra.png" },
+  { n: 46, name: "Bagheera",             club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_bagheera_extra.png" },
+  { n: 47, name: "Bruna II",             club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_bruna_extra_2.png" },
+  { n: 48, name: "Café",                 club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_cafe_extra.png" },
+  { n: 49, name: "Cuscuz",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_cuscuz_extra.png" },
+  { n: 50, name: "Mario",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_mario_extra.png" },
+  { n: 51, name: "Risso",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_risso_extra.png" },
+  { n: 52, name: "Sakura",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_sakura_extra.png" },
+  { n: 53, name: "UFC",                  club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_ufc_extra.png" },
+  { n: 54, name: "Wesley",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_wesley_extra.png" },
 ];
 
 /* -------- Retângulos das 7 molduras impressas do album_vazio.png (% da imagem) -------- */
@@ -98,8 +122,10 @@ function espGrid(ns) {
 }
 const ESP1 = espGrid([15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]); // Especiais I (12 ocupadas)
 const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]); // Especiais II (12 ocupadas — completa)
-const ESP3 = espGrid([39, 41]);                                         // Especiais III (2 ocupadas + 10 reservadas)
-const EXTRA = espGrid([40, 42]);                                        // Legends Extra (2 ocupadas + 10 reservadas)
+const ESP3 = espGrid([39, 41, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]); // Especiais III (12 — completa)
+const ESP4 = espGrid([65, 66]);                                         // Especiais IV (2 ocupadas + 10 reservadas)
+const EXTRA = espGrid([40, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]); // Legends Extra (12 — completa)
+const EXTRA2 = espGrid([54]);                                            // Legends Extra II (1 ocupada + 11 reservadas)
 
 /* -------- Páginas do álbum (livro) -------- */
 const PAGES = [
@@ -111,12 +137,13 @@ const PAGES = [
   ]},
 
   { type: "album", title: "Uniformes Alternativos", img: "assets/pages/album_vazio.png", slots: [
-    slot(9, F[0]), slot(10, F[1]), slot(11, F[2]), slot(12, F[3]), slot(13, F[4]), slot(14, F[5]),
-    // F[6] (destaque) fica reservado p/ futuro
+    slot(9, F[0]), slot(10, F[1]), slot(11, F[2]), slot(12, F[3]), slot(13, F[4]), slot(14, F[5]), slot(43, F[6]),
   ]},
 
   { type: "special", title: "Especiais", img: "assets/pages/album_especiais.png", slots: ESP1 },
   { type: "special", title: "Especiais II", img: "assets/pages/album_especiais.png", slots: ESP2 },
   { type: "special", title: "Especiais III", img: "assets/pages/album_especiais.png", slots: ESP3 },
+  { type: "special", title: "Especiais IV", img: "assets/pages/album_especiais.png", slots: ESP4 },
   { type: "special", title: "Legends Extra", img: "assets/pages/album_extras.png", slots: EXTRA },
+  { type: "special", title: "Legends Extra II", img: "assets/pages/album_extras.png", slots: EXTRA2 },
 ];
