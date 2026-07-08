@@ -386,10 +386,14 @@
       const news = cards.filter((c) => c.isNew);
       commitPack(cards);
       revealOverlay.classList.remove("active");
-      switchTab("album");
-      if (news.length && stickerPage[news[0].n] != null) currentPage = stickerPage[news[0].n];
+      // se ainda há envelopes, continua na aba Envelopes para abrir mais;
+      // quando acabarem, vai pro álbum na página da 1ª figurinha nova.
+      if (state.packsLeft <= 0 && news.length && stickerPage[news[0].n] != null) {
+        currentPage = stickerPage[news[0].n];
+      }
       renderPage();
       renderPacks();
+      switchTab(state.packsLeft > 0 ? "envelopes" : "album");
     };
   }
 

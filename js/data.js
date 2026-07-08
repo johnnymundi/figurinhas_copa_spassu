@@ -65,6 +65,7 @@ const STICKERS = [
   { n: 33, name: "Thiago",               club: "Especial",            rarity: "especial", img: "assets/especiais/card_thiago_especial.png" },
   { n: 34, name: "Erling Haaland",       club: "Lendária II",         rarity: "lendaria", img: "assets/especiais/card_haaland_lendaria_2.png" },
   { n: 35, name: "Suzuki",               club: "Especial",            rarity: "especial", img: "assets/especiais/card_suzuki_especial.png" },
+  { n: 36, name: "Erling Haaland",       club: "Especial II",         rarity: "especial", img: "assets/especiais/card_halaand_especial_2.png" },
 ];
 
 /* -------- Retângulos das 7 molduras impressas do album_vazio.png (% da imagem) -------- */
@@ -88,7 +89,7 @@ function espGrid(ns) {
   return out;
 }
 const ESP1 = espGrid([15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]); // Especiais I (12 ocupadas)
-const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35]);             // Especiais II (9 ocupadas + 3 reservadas)
+const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35, 36]);         // Especiais II (10 ocupadas + 2 reservadas)
 
 /* -------- Páginas do álbum (livro) -------- */
 const PAGES = [

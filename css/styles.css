@@ -22,6 +22,16 @@ body{
   color:var(--text);
   min-height:100vh;
 }
+/* plano de fundo do site: imagem fixa levemente desfocada + camada escura */
+body::before{
+  content:""; position:fixed; inset:-24px; z-index:-2;
+  background:url("../assets/ui/background.png") center center / cover no-repeat;
+  filter:blur(7px) brightness(.9);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1;
+  background:rgba(12,12,15,.72);
+}
 img{ user-select:none; -webkit-user-drag:none; }
 
 /* ===================== TELAS ===================== */
@@ -60,6 +70,10 @@ img{ user-select:none; -webkit-user-drag:none; }
   display:flex; align-items:center; justify-content:space-between;
   gap:16px; padding:14px 22px; flex-wrap:wrap;
 }
+.brand-wrap{ display:flex; align-items:center; gap:14px; }
+.logo-link{ display:inline-flex; background:#fff; padding:5px 9px; border-radius:8px; line-height:0; transition:transform .12s ease, box-shadow .12s ease; }
+.logo-link:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.4); }
+.logo-spassu{ height:26px; width:auto; display:block; }
 .brand{ font-size:22px; font-weight:900; letter-spacing:1px; }
 .brand span{ color:var(--orange); }
 .tabs{ display:flex; gap:8px; flex-wrap:wrap; }
@@ -204,10 +218,10 @@ img{ user-select:none; -webkit-user-drag:none; }
 .rip-fill{ height:100%; width:0; background:linear-gradient(90deg,var(--orange),var(--gold)); }
 
 /* ---- Revelação ---- */
-.reveal-stage{ text-align:center; max-width:900px; }
+.reveal-stage{ text-align:center; max-width:1200px; width:100%; }
 .reveal-title{ color:#fff; font-size:26px; margin:0 0 22px; }
-.reveal-cards{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:26px; }
-.reveal-card{ position:relative; width:150px; border-radius:12px; opacity:0; transform:rotateY(90deg) scale(.8); animation:flipIn .5s ease forwards; }
+.reveal-cards{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:26px; }
+.reveal-card{ position:relative; width:clamp(160px, 18vw, 215px); border-radius:12px; opacity:0; transform:rotateY(90deg) scale(.8); animation:flipIn .5s ease forwards; }
 .reveal-card .card-img{ width:100%; border-radius:12px; display:block; box-shadow:0 12px 30px rgba(0,0,0,.5); }
 .reveal-card.rarity-rara .card-img{ box-shadow:0 0 26px rgba(255,206,77,.7); }
 .reveal-card.rarity-lendaria .card-img,.reveal-card.rarity-especial .card-img{ box-shadow:0 0 30px rgba(170,120,255,.85); }
@@ -272,5 +286,5 @@ img{ user-select:none; -webkit-user-drag:none; }
 }
 @media (max-width:600px){
   .cover-info h1{ font-size:34px; }
-  .reveal-card{ width:110px; }
+  .reveal-card{ width:clamp(130px, 43vw, 180px); }
 }
