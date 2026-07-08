@@ -97,7 +97,7 @@
       // exige senha para liberar o "completar automaticamente"
       const pwd = prompt("Digite a senha para completar o álbum automaticamente:");
       if (pwd === null) return; // cancelou
-      if (pwd.trim().toLowerCase() !== "farofinha") { alert("Senha incorreta!"); return; }
+      if (pwd.trim().toLowerCase() !== "cuscuzinho") { alert("Senha incorreta!"); return; }
       // guarda o que estava colado/na bandeja e cola tudo
       state.autoBackup = { glued: Object.assign({}, state.glued), tray: state.tray.slice() };
       Object.keys(stickerPage).forEach((n) => { state.glued[n] = true; });
