@@ -400,13 +400,13 @@
       renderPage();
       renderPacks();
       switchTab(state.packsLeft > 0 ? "envelopes" : "album");
-      // a cada 3 envelopes abertos: pausa para apreciar os gestores
-      if (state.openedCount && state.openedCount % 3 === 0) showPausa();
+      // a cada 6 envelopes abertos: pausa para apreciar os gestores
+      if (state.openedCount && state.openedCount % 6 === 0) showPausa();
     };
   }
 
   /* ==========================================================
-     PAUSA (a cada 3 envelopes) — gestores + contagem 5s que vira X
+     PAUSA (a cada 6 envelopes) — gestores + contagem 5s que vira X
      ========================================================== */
   const pausaOverlay = $("#pausa-overlay");
   const pausaTimer = $("#pausa-timer");

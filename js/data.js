@@ -85,6 +85,7 @@ const STICKERS = [
   { n: 66, name: "Carol",                club: "Especial",            rarity: "especial", img: "assets/especiais/card_carol_especial.png" },
   { n: 67, name: "Querida, o Polvo Paul", club: "Memes Mundiais · Nº017", rarity: "especial", img: "assets/especiais/card_querida_paul_especial.png" },
   { n: 68, name: "Cat Poker Face",       club: "Meme Extra · M-07",   rarity: "especial", img: "assets/especiais/card_cat_poker_especial.png" },
+  { n: 74, name: "Depende",              club: "Especial",            rarity: "especial", img: "assets/especiais/card_depende_especial.png" },
 
   // Página LEGENDS EXTRA (pasta extras/) — raridade "extra" com brilho holográfico
   { n: 40, name: "Bruna",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_bruna_extra.png" },
@@ -130,7 +131,7 @@ function espGrid(ns) {
 const ESP1 = espGrid([15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]); // Especiais I (12 ocupadas)
 const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]); // Especiais II (12 ocupadas — completa)
 const ESP3 = espGrid([39, 41, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]); // Especiais III (12 — completa)
-const ESP4 = espGrid([65, 66, 67, 68]);                                 // Especiais IV (4 ocupadas + 8 reservadas)
+const ESP4 = espGrid([65, 66, 67, 68, 74]);                             // Especiais IV (5 ocupadas + 7 reservadas)
 const EXTRA = espGrid([40, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]); // Legends Extra (12 — completa)
 const EXTRA2 = espGrid([54, 69, 70, 71, 72, 73]);                        // Legends Extra II (6 ocupadas + 6 reservadas)
 
