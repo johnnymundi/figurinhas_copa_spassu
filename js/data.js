@@ -12,14 +12,14 @@
    ============================================================ */
 
 const CONFIG = {
-  packsPerDay: 5,
+  packsPerDay: 10,
   stickersPerPack: 5,
   envelopeImg: "assets/ui/Envelope_cromos.png",
 };
 
 // Pesos de raridade no sorteio (maior = mais comum)
-const RARITY_WEIGHT = { comum: 22, rara: 8, lendaria: 3, especial: 3 };
-const RARITY_LABEL = { comum: "Comum", rara: "Alternativa ✦", lendaria: "Lendária ★", especial: "Especial ✨" };
+const RARITY_WEIGHT = { comum: 22, rara: 8, lendaria: 3, especial: 3, extra: 2 };
+const RARITY_LABEL = { comum: "Comum", rara: "Alternativa ✦", lendaria: "Lendária ★", especial: "Especial ✨", extra: "Legend Extra 🌈" };
 
 /* -------- Figurinhas -------- */
 const STICKERS = [
@@ -69,7 +69,11 @@ const STICKERS = [
   { n: 37, name: "Cristiano Ronaldo",    club: "Especial · Al Nassr",  rarity: "especial", img: "assets/especiais/card_cristiano_especial.png" },
   { n: 38, name: "Eu Sou Lindo",         club: "Especial",            rarity: "especial", img: "assets/especiais/card_eu_sou_lindo_especial.png" },
   { n: 39, name: "Lionel Messi",         club: "Especial",            rarity: "lendaria", img: "assets/especiais/card_messi_especial.png" },
-  { n: 40, name: "Bruna",                club: "Campeã do Coração",   rarity: "lendaria", img: "assets/especiais/card_bruna_especial.png" },
+  { n: 41, name: "Neymar Jr",            club: "Especial",            rarity: "lendaria", img: "assets/especiais/card_neymar_especial.png" },
+
+  // Página LEGENDS EXTRA (pasta extras/) — raridade "extra" com brilho holográfico
+  { n: 40, name: "Bruna",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_bruna_extra.png" },
+  { n: 42, name: "Piloto DevOps",        club: "Legends Extra · Nº124", rarity: "extra", img: "assets/extras/card_piloto_extra.png" },
 ];
 
 /* -------- Retângulos das 7 molduras impressas do album_vazio.png (% da imagem) -------- */
@@ -94,7 +98,8 @@ function espGrid(ns) {
 }
 const ESP1 = espGrid([15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]); // Especiais I (12 ocupadas)
 const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]); // Especiais II (12 ocupadas — completa)
-const ESP3 = espGrid([39, 40]);                                         // Especiais III (2 ocupadas + 10 reservadas)
+const ESP3 = espGrid([39, 41]);                                         // Especiais III (2 ocupadas + 10 reservadas)
+const EXTRA = espGrid([40, 42]);                                        // Legends Extra (2 ocupadas + 10 reservadas)
 
 /* -------- Páginas do álbum (livro) -------- */
 const PAGES = [
@@ -113,4 +118,5 @@ const PAGES = [
   { type: "special", title: "Especiais", img: "assets/pages/album_especiais.png", slots: ESP1 },
   { type: "special", title: "Especiais II", img: "assets/pages/album_especiais.png", slots: ESP2 },
   { type: "special", title: "Especiais III", img: "assets/pages/album_especiais.png", slots: ESP3 },
+  { type: "special", title: "Legends Extra", img: "assets/pages/album_extras.png", slots: EXTRA },
 ];

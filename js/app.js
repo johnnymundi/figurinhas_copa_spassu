@@ -94,6 +94,10 @@
   // Completar álbum automaticamente (toggle): cola TODAS; ao desfazer, volta ao estado anterior
   function toggleAutoComplete() {
     if (!state.autoBackup) {
+      // exige senha para liberar o "completar automaticamente"
+      const pwd = prompt("Digite a senha para completar o álbum automaticamente:");
+      if (pwd === null) return; // cancelou
+      if (pwd.trim().toLowerCase() !== "farofinha") { alert("Senha incorreta!"); return; }
       // guarda o que estava colado/na bandeja e cola tudo
       state.autoBackup = { glued: Object.assign({}, state.glued), tray: state.tray.slice() };
       Object.keys(stickerPage).forEach((n) => { state.glued[n] = true; });
@@ -213,7 +217,7 @@
     const shelf = $("#packs-shelf");
     shelf.innerHTML = "";
     if (state.packsLeft <= 0) {
-      shelf.appendChild(el("div", "empty-msg", "Você já abriu seus 5 envelopes hoje. Volte amanhã! 🌙"));
+      shelf.appendChild(el("div", "empty-msg", "Você já abriu seus " + CONFIG.packsPerDay + " envelopes hoje. Volte amanhã! 🌙"));
       return;
     }
     for (let i = 0; i < state.packsLeft; i++) {
