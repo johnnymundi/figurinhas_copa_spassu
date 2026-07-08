@@ -107,6 +107,7 @@ const STICKERS = [
   { n: 71, name: "Carol",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_carol_extra.png" },
   { n: 72, name: "Mônica",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_monica_extra.png" },
   { n: 73, name: "Risso II",             club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_risso_extra_2.png" },
+  { n: 76, name: "Diego",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_diego_extra.png" },
 ];
 
 /* -------- Retângulos das 7 molduras impressas do album_vazio.png (% da imagem) -------- */
@@ -134,7 +135,7 @@ const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]); // Espec
 const ESP3 = espGrid([39, 41, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]); // Especiais III (12 — completa)
 const ESP4 = espGrid([65, 66, 67, 68, 74, 75]);                         // Especiais IV (6 ocupadas + 6 reservadas)
 const EXTRA = espGrid([40, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]); // Legends Extra (12 — completa)
-const EXTRA2 = espGrid([54, 69, 70, 71, 72, 73]);                        // Legends Extra II (6 ocupadas + 6 reservadas)
+const EXTRA2 = espGrid([54, 69, 70, 71, 72, 73, 76]);                    // Legends Extra II (7 ocupadas + 5 reservadas)
 
 /* -------- Páginas do álbum (livro) -------- */
 const PAGES = [
