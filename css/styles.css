@@ -241,6 +241,7 @@ img{ user-select:none; -webkit-user-drag:none; }
 .page-indicator{ font-weight:800; font-size:14px; min-width:120px; text-align:center; }
 .progress-wrap{ display:flex; align-items:center; gap:12px; flex:1; min-width:160px; }
 .btn:disabled{ opacity:.35; cursor:not-allowed; transform:none; }
+.btn-ghost.active{ background:var(--orange); border-color:var(--orange); color:#fff; }
 
 /* capa como página 1 */
 .album-page.is-cover{ cursor:pointer; }

@@ -27,7 +27,7 @@
 
   /* ---------- estado ---------- */
   function defaultState() {
-    return { glued: {}, tray: [], repeats: {}, day: todayStr(), packsLeft: CONFIG.packsPerDay, uid: 1 };
+    return { glued: {}, tray: [], repeats: {}, day: todayStr(), packsLeft: CONFIG.packsPerDay, uid: 1, autoBackup: null };
   }
   function load() {
     try {
@@ -91,6 +91,29 @@
     renderPage();
   }
 
+  // Completar álbum automaticamente (toggle): cola TODAS; ao desfazer, volta ao estado anterior
+  function toggleAutoComplete() {
+    if (!state.autoBackup) {
+      // guarda o que estava colado/na bandeja e cola tudo
+      state.autoBackup = { glued: Object.assign({}, state.glued), tray: state.tray.slice() };
+      Object.keys(stickerPage).forEach((n) => { state.glued[n] = true; });
+      state.tray = [];
+    } else {
+      // desfaz: restaura exatamente o estado anterior
+      state.glued = state.autoBackup.glued;
+      state.tray = state.autoBackup.tray;
+      state.autoBackup = null;
+    }
+    save();
+    renderPage();
+  }
+  function updateAutoBtn() {
+    const b = document.querySelector("#btn-auto-complete");
+    const on = !!state.autoBackup;
+    b.textContent = on ? "↩️ Desfazer (voltar ao anterior)" : "🪄 Completar álbum automaticamente";
+    b.classList.toggle("active", on);
+  }
+
   /* ==========================================================
      RENDER: PÁGINA ATUAL DO LIVRO
      ========================================================== */
@@ -111,6 +134,8 @@
     $("#album-tray").style.display = isCover ? "none" : "";
     $("#progress-wrap").style.display = isCover ? "none" : "";
     $("#btn-toggle-complete").style.display = isCover ? "none" : "";
+    $("#btn-auto-complete").style.display = isCover ? "none" : "";
+    updateAutoBtn();
     if (isCover) return;
 
     p.slots.forEach((sl) => {
@@ -292,6 +317,7 @@
     renderPage();
   });
   $("#btn-cola-todas").addEventListener("click", glueAllCurrent);
+  $("#btn-auto-complete").addEventListener("click", toggleAutoComplete);
 
   /* ==========================================================
      ABERTURA DO ENVELOPE
