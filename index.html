@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Álbum de Figurinhas — Copa Spassu 2026</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ================= HUB ================= -->
+  <section id="hub" class="screen active">
+    <header class="topbar">
+      <div class="brand">COPA <span>SPASSU</span> 2026</div>
+      <nav class="tabs">
+        <button class="tab active" data-tab="album">📖 Álbum</button>
+        <button class="tab" data-tab="envelopes">✉️ Envelopes <span id="packs-badge" class="mini-badge"></span></button>
+      </nav>
+    </header>
+
+    <!-- --------- ABA ÁLBUM (livro) --------- -->
+    <div id="tab-album" class="tabpanel active">
+      <div class="album-toolbar">
+        <div class="pager">
+          <button id="page-prev" class="btn btn-ghost btn-sm">‹ Anterior</button>
+          <span id="page-indicator" class="page-indicator"></span>
+          <button id="page-next" class="btn btn-ghost btn-sm">Próxima ›</button>
+        </div>
+        <div id="progress-wrap" class="progress-wrap">
+          <div id="progress-label" class="progress-label"></div>
+          <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+        </div>
+        <button id="btn-toggle-complete" class="btn btn-ghost btn-sm">👁️ Ver completo</button>
+      </div>
+
+      <div class="album-workspace">
+        <div class="album-stage">
+          <div id="album-page" class="album-page">
+            <img id="album-page-img" class="album-page-img" src="assets/pages/capa_album.png" alt="Página do álbum" draggable="false" />
+            <div id="cover-hint" class="cover-hint-fly">clique para abrir ▸</div>
+          </div>
+        </div>
+
+        <aside id="album-tray" class="album-tray">
+          <div class="tray-head">
+            <h3 id="tray-title">⭐ Para colar nesta página</h3>
+            <button id="btn-cola-todas" class="btn btn-ghost btn-sm">Colar todas</button>
+          </div>
+          <p class="tray-tip">Arraste cada figurinha até o lugar dela 👉</p>
+          <div id="tray-list" class="tray-list"></div>
+          <p id="tray-other" class="tray-other"></p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- --------- ABA ENVELOPES --------- -->
+    <div id="tab-envelopes" class="tabpanel">
+      <div class="packs-info">
+        Envelopes disponíveis hoje: <strong><span id="packs-left"></span>/<span id="packs-max"></span></strong>
+        <button id="btn-reset-packs" class="btn btn-ghost btn-sm">🔄 Resetar envelopes</button>
+      </div>
+      <div id="packs-shelf" class="packs-shelf"></div>
+    </div>
+  </section>
+
+  <!-- ================= OVERLAY: ABRIR ENVELOPE ================= -->
+  <div id="open-overlay" class="overlay">
+    <div class="open-stage">
+      <p class="open-instruction">Segure o <b>botão esquerdo</b> do mouse na faixa de cima e <b>arraste para o lado</b> para rasgar o envelope</p>
+      <div id="envelope" class="envelope">
+        <img class="envelope-img" src="assets/ui/Envelope_cromos.png" alt="Envelope" draggable="false" />
+        <div class="glow-gap"></div>
+        <div id="tear-strip" class="tear-strip"><span class="tear-hint">✋ segure e arraste aqui ⟷</span></div>
+      </div>
+      <div class="rip-meter"><div id="rip-fill" class="rip-fill"></div></div>
+      <button id="btn-cancel-open" class="btn btn-ghost btn-cancel">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- ================= OVERLAY: REVELAÇÃO ================= -->
+  <div id="reveal-overlay" class="overlay">
+    <div class="reveal-stage">
+      <h2 class="reveal-title">✨ Suas 5 figurinhas ✨</h2>
+      <div id="reveal-cards" class="reveal-cards"></div>
+      <button id="btn-reveal-done" class="btn btn-primary btn-big">Guardar no porta-figurinhas ⭐</button>
+    </div>
+  </div>
+
+  <!-- ================= OVERLAY: VER EM TELA CHEIA ================= -->
+  <div id="viewer-overlay" class="overlay">
+    <div class="viewer">
+      <button id="viewer-close" class="viewer-close" aria-label="Fechar">✕</button>
+      <img id="viewer-img" class="viewer-img" alt="Figurinha" />
+      <div class="viewer-info">
+        <span id="viewer-rarity" class="viewer-rarity"></span>
+        <h2 id="viewer-name" class="viewer-name"></h2>
+        <p id="viewer-meta" class="viewer-meta"></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
