@@ -83,6 +83,8 @@ const STICKERS = [
   { n: 64, name: "Mônica II",            club: "Especial",            rarity: "especial", img: "assets/especiais/card_monica_especial_2.png" },
   { n: 65, name: "Transbordar",          club: "Especial",            rarity: "especial", img: "assets/especiais/card_transbordar_especial.png" },
   { n: 66, name: "Carol",                club: "Especial",            rarity: "especial", img: "assets/especiais/card_carol_especial.png" },
+  { n: 67, name: "Querida, o Polvo Paul", club: "Memes Mundiais · Nº017", rarity: "especial", img: "assets/especiais/card_querida_paul_especial.png" },
+  { n: 68, name: "Cat Poker Face",       club: "Meme Extra · M-07",   rarity: "especial", img: "assets/especiais/card_cat_poker_especial.png" },
 
   // Página LEGENDS EXTRA (pasta extras/) — raridade "extra" com brilho holográfico
   { n: 40, name: "Bruna",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_bruna_extra.png" },
@@ -98,6 +100,11 @@ const STICKERS = [
   { n: 52, name: "Sakura",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_sakura_extra.png" },
   { n: 53, name: "UFC",                  club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_ufc_extra.png" },
   { n: 54, name: "Wesley",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_wesley_extra.png" },
+  { n: 69, name: "Jorge",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_jorge_extra.png" },
+  { n: 70, name: "Bom",                  club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_bom_extra.jpg" },
+  { n: 71, name: "Carol",                club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_carol_extra.png" },
+  { n: 72, name: "Mônica",               club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_monica_extra.png" },
+  { n: 73, name: "Risso II",             club: "Legends Extra",         rarity: "extra", img: "assets/extras/card_risso_extra_2.png" },
 ];
 
 /* -------- Retângulos das 7 molduras impressas do album_vazio.png (% da imagem) -------- */
@@ -123,9 +130,9 @@ function espGrid(ns) {
 const ESP1 = espGrid([15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]); // Especiais I (12 ocupadas)
 const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]); // Especiais II (12 ocupadas — completa)
 const ESP3 = espGrid([39, 41, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]); // Especiais III (12 — completa)
-const ESP4 = espGrid([65, 66]);                                         // Especiais IV (2 ocupadas + 10 reservadas)
+const ESP4 = espGrid([65, 66, 67, 68]);                                 // Especiais IV (4 ocupadas + 8 reservadas)
 const EXTRA = espGrid([40, 42, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]); // Legends Extra (12 — completa)
-const EXTRA2 = espGrid([54]);                                            // Legends Extra II (1 ocupada + 11 reservadas)
+const EXTRA2 = espGrid([54, 69, 70, 71, 72, 73]);                        // Legends Extra II (6 ocupadas + 6 reservadas)
 
 /* -------- Páginas do álbum (livro) -------- */
 const PAGES = [
