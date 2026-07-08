@@ -27,7 +27,7 @@
 
   /* ---------- estado ---------- */
   function defaultState() {
-    return { glued: {}, tray: [], repeats: {}, day: todayStr(), packsLeft: CONFIG.packsPerDay, uid: 1, autoBackup: null };
+    return { glued: {}, tray: [], repeats: {}, day: todayStr(), packsLeft: CONFIG.packsPerDay, uid: 1, autoBackup: null, openedCount: 0 };
   }
   function load() {
     try {
@@ -353,7 +353,9 @@
     if (opening) return;
     opening = true;
     envelope.classList.add("opening");
-    state.packsLeft--; save();
+    state.packsLeft--;
+    state.openedCount = (state.openedCount || 0) + 1;
+    save();
     pendingCards = openPackDraw();
     setTimeout(() => { openOverlay.classList.remove("active"); renderPacks(); showReveal(pendingCards); }, 700);
   }
@@ -394,7 +396,35 @@
       renderPage();
       renderPacks();
       switchTab(state.packsLeft > 0 ? "envelopes" : "album");
+      // a cada 3 envelopes abertos: pausa para apreciar os gestores
+      if (state.openedCount && state.openedCount % 3 === 0) showPausa();
     };
+  }
+
+  /* ==========================================================
+     PAUSA (a cada 3 envelopes) — gestores + contagem 5s que vira X
+     ========================================================== */
+  const pausaOverlay = $("#pausa-overlay");
+  const pausaTimer = $("#pausa-timer");
+  let pausaInterval = null;
+  function showPausa() {
+    let left = 5;
+    clearInterval(pausaInterval);
+    pausaTimer.classList.remove("ready");
+    pausaTimer.onclick = null;
+    pausaTimer.textContent = left;
+    pausaOverlay.classList.add("active");
+    pausaInterval = setInterval(() => {
+      left--;
+      if (left > 0) {
+        pausaTimer.textContent = left; // contagem regressiva
+      } else {
+        clearInterval(pausaInterval);
+        pausaTimer.textContent = "✕";        // vira botão de fechar
+        pausaTimer.classList.add("ready");
+        pausaTimer.onclick = () => pausaOverlay.classList.remove("active");
+      }
+    }, 1000);
   }
 
   /* ---------- INIT ---------- */

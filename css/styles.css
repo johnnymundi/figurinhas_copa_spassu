@@ -275,6 +275,33 @@ img{ user-select:none; -webkit-user-drag:none; }
 
 .tray-other{ color:var(--muted); font-size:12px; margin-top:12px; text-align:center; font-weight:700; }
 
+/* ===================== PAUSA (gestores) ===================== */
+.pausa-overlay{ z-index:150; overflow:hidden; }
+.pausa-bg{
+  position:absolute; inset:-40px; z-index:0;
+  background:url("../assets/ui/ricardo_e_thiago.png") center center / cover no-repeat;
+  filter:blur(26px) brightness(.4);
+}
+.pausa-card{ position:relative; z-index:2; text-align:center; max-width:min(1100px,92vw); }
+.pausa-title{
+  color:#fff; font-size:clamp(22px,3.4vw,40px); font-weight:900; margin:0 0 20px;
+  text-shadow:0 4px 18px rgba(0,0,0,.75); letter-spacing:.5px;
+}
+.pausa-img{
+  max-width:100%; max-height:70vh; border-radius:16px; border:4px solid #fff;
+  box-shadow:0 24px 64px rgba(0,0,0,.7); display:block; margin:0 auto;
+}
+.pausa-timer{
+  position:absolute; top:22px; right:22px; z-index:3;
+  min-width:56px; height:56px; padding:0 8px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px; font-weight:900; color:#fff;
+  background:rgba(0,0,0,.62); border:2px solid rgba(255,255,255,.55);
+  box-shadow:0 6px 18px rgba(0,0,0,.5); user-select:none;
+}
+.pausa-timer.ready{ cursor:pointer; background:var(--orange); border-color:#fff; }
+.pausa-timer.ready:hover{ filter:brightness(1.12); transform:scale(1.06); }
+
 /* ===================== RESPONSIVO ===================== */
 @media (max-width:900px){
   .album-workspace{ flex-direction:column; align-items:stretch; }

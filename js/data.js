@@ -69,6 +69,7 @@ const STICKERS = [
   { n: 37, name: "Cristiano Ronaldo",    club: "Especial · Al Nassr",  rarity: "especial", img: "assets/especiais/card_cristiano_especial.png" },
   { n: 38, name: "Eu Sou Lindo",         club: "Especial",            rarity: "especial", img: "assets/especiais/card_eu_sou_lindo_especial.png" },
   { n: 39, name: "Lionel Messi",         club: "Especial",            rarity: "lendaria", img: "assets/especiais/card_messi_especial.png" },
+  { n: 40, name: "Bruna",                club: "Campeã do Coração",   rarity: "lendaria", img: "assets/especiais/card_bruna_especial.png" },
 ];
 
 /* -------- Retângulos das 7 molduras impressas do album_vazio.png (% da imagem) -------- */
@@ -93,7 +94,7 @@ function espGrid(ns) {
 }
 const ESP1 = espGrid([15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]); // Especiais I (12 ocupadas)
 const ESP2 = espGrid([27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]); // Especiais II (12 ocupadas — completa)
-const ESP3 = espGrid([39]);                                             // Especiais III (1 ocupada + 11 reservadas)
+const ESP3 = espGrid([39, 40]);                                         // Especiais III (2 ocupadas + 10 reservadas)
 
 /* -------- Páginas do álbum (livro) -------- */
 const PAGES = [
